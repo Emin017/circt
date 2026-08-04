@@ -183,5 +183,13 @@ def HWConvertBitcasts : Pass<"hw-convert-bitcasts", "mlir::ModuleOp"> {
   let dependentDialects = ["comb::CombDialect"];
 }
 
+def HWSplitBitVectorPorts : Pass<"hw-split-bitvector-ports", "mlir::ModuleOp"> {
+  let summary = "Convert hw bitvector ports to bit extracts";
+  let description = [{
+    This passes attempts to convert hw bitvector ports to bit extracts.
+  }];
+
+  let dependentDialects = ["comb::CombDialect"];
+}
 
 #endif // CIRCT_DIALECT_HW_PASSES_TD
