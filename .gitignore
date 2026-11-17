@@ -7,6 +7,8 @@ TAGS
 .idea
 compile_commands.json
 .cache/
+.ccache/
+.direnv/
 #*
 *~
 .DS_Store
