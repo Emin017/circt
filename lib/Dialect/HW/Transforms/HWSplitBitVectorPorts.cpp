@@ -43,9 +43,7 @@ struct HWSplitBitVectorPortsPass
 
 void HWSplitBitVectorPortsPass::runOnOperation() {
   mlir::ModuleOp design = getOperation();
-  hw::HWModuleOp op = design.lookupSymbol<hw::HWModuleOp>(
-      "top"); // Should be the top module name, but we can also make it
-              // configurable in the future
+  hw::HWModuleOp op = design.lookupSymbol<hw::HWModuleOp>(moduleName);
 
   if (!op) {
     design->emitError("Cannot find hw.module @top");

@@ -188,6 +188,11 @@ def HWSplitBitVectorPorts : Pass<"hw-split-bitvector-ports", "mlir::ModuleOp"> {
   let description = [{
     This passes attempts to convert hw bitvector ports to bit extracts.
   }];
+  let options = [
+    Option<"moduleName", "module-name", "std::string",
+            /*default=*/"\"top\"",
+            "Name of the module whose bit-vector input ports will be split">
+  ];
 
   let dependentDialects = ["comb::CombDialect"];
 }
